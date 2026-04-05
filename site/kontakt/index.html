@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
@@ -19,59 +19,57 @@
     <script src="/app.js" defer></script>
   </head>
   <body data-page="contact">
+    <div class="scene-bg" aria-hidden="true">
+      <span class="scene-blob scene-blob-a"></span>
+      <span class="scene-blob scene-blob-b"></span>
+      <span class="scene-blob scene-blob-c"></span>
+      <span class="scene-grid"></span>
+    </div>
+
     <div class="page-shell">
-      <header class="topbar">
+      <header class="topbar glass-surface" data-topbar>
         <a class="brand" href="/">CrooLyyPage</a>
-        <nav class="nav">
+        <nav class="nav" aria-label="Glowna nawigacja">
           <a class="nav-link" href="/">Home</a>
           <a class="nav-link is-active" href="/kontakt/">Kontakt</a>
         </nav>
       </header>
 
       <main class="contact-layout">
-        <section class="panel contact-hero">
+        <section class="contact-hero glass-card reveal">
           <p class="eyebrow">Kontakt</p>
-          <h1>Mail, GitHub, YouTube.</h1>
-          <p class="lead">Trzy linki. Zero zbednego opisu.</p>
+          <h1>Mail. GitHub. YouTube.</h1>
           <div class="hero-actions">
             <a class="button button-primary" data-email-link href="mailto:kontakt@croolyypage.pl">
               Napisz maila
             </a>
-            <a class="button button-secondary" data-social-link="github" href="#">
-              Otworz GitHub
-            </a>
+            <a class="button button-secondary" data-social-link="github" href="#">GitHub</a>
+            <a class="button button-ghost" data-social-link="youtube" href="#">YouTube</a>
           </div>
         </section>
 
         <section class="contact-grid">
-          <article class="panel contact-card">
+          <article class="contact-card glass-card reveal" data-reveal-delay="0.03">
             <span class="spotlight-tag">E-mail</span>
             <h2>Napisz bezposrednio</h2>
             <p>Najkrotsza droga do kontaktu.</p>
-            <a
-              class="text-link email-link"
-              data-email-link
-              data-fill-email
-              href="mailto:kontakt@croolyypage.pl"
-            >
+            <a class="text-link email-link" data-email-link data-fill-email href="mailto:kontakt@croolyypage.pl">
               kontakt@croolyypage.pl
             </a>
           </article>
-          <article class="panel contact-card">
+
+          <article class="contact-card glass-card reveal" data-reveal-delay="0.08">
             <span class="spotlight-tag">GitHub</span>
-            <h2>Projekty i kod</h2>
-            <p>Repozytoria, commity i aktualne rzeczy.</p>
-            <a class="text-link" data-social-link="github" href="#">
-              Otworz GitHub
-            </a>
+            <h2>Repo i kod</h2>
+            <p>Profil, projekty i aktualne rzeczy.</p>
+            <a class="text-link" data-social-link="github" href="#">Otworz GitHub</a>
           </article>
-          <article class="panel contact-card">
+
+          <article class="contact-card glass-card reveal" data-reveal-delay="0.13">
             <span class="spotlight-tag">YouTube</span>
-            <h2>Materialy wideo</h2>
-            <p>Kanal i nowe publikacje.</p>
-            <a class="text-link" data-social-link="youtube" href="#">
-              Otworz kanal
-            </a>
+            <h2>Najnowszy material</h2>
+            <p>Kanal z embeddowanym latest uploadem na stronie glownej.</p>
+            <a class="text-link" data-social-link="youtube" href="#">Otworz kanal</a>
           </article>
         </section>
       </main>
@@ -81,6 +79,7 @@
         <div class="footer-links">
           <a data-social-link="github" href="#">GitHub</a>
           <a data-social-link="youtube" href="#">YouTube</a>
+          <a data-email-link href="mailto:kontakt@croolyypage.pl">Mail</a>
         </div>
       </footer>
     </div>

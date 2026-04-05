@@ -8,7 +8,7 @@ Do tego briefu najlepsza jest statyczna strona HTML/CSS/JS serwowana przez gotow
 
 Dlaczego nie React:
 
-- strona ma tylko dwie podstrony i bardzo proste interakcje
+- strona ma tylko dwie podstrony i proste interakcje
 - nie trzeba procesu builda
 - wszystko startuje od razu przez `docker compose`
 - latwiej wdrozyc i utrzymac
@@ -36,5 +36,6 @@ Mozesz tam szybko podmienic:
 - login GitHub do podgladu profilu
 - link do GitHub
 - link do YouTube
-- `youtubeEmbedUrl` do osadzenia konkretnego filmu
+- `youtubeChannelId`, z ktorego strona buduje embed najnowszego uploadu
+- `youtubeEmbedUrl`, jesli chcesz nadpisac automat konkretnym filmem
 - adres e-mail

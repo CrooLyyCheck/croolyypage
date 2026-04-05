@@ -6,12 +6,12 @@
     <title>CrooLyyPage | Landing Page</title>
     <meta
       name="description"
-      content="GitHub, YouTube i kontakt do CrooLyyCheck w jednym miejscu."
+      content="GitHub, najnowszy material z YouTube i kontakt do CrooLyyCheck w jednym miejscu."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
@@ -19,82 +19,102 @@
     <script src="/app.js" defer></script>
   </head>
   <body data-page="home">
+    <div class="scene-bg" aria-hidden="true">
+      <span class="scene-blob scene-blob-a"></span>
+      <span class="scene-blob scene-blob-b"></span>
+      <span class="scene-blob scene-blob-c"></span>
+      <span class="scene-grid"></span>
+    </div>
+
     <div class="page-shell">
-      <header class="topbar">
+      <header class="topbar glass-surface" data-topbar>
         <a class="brand" href="/">CrooLyyPage</a>
-        <nav class="nav">
+        <nav class="nav" aria-label="Glowna nawigacja">
           <a class="nav-link is-active" href="/">Home</a>
           <a class="nav-link" href="/kontakt/">Kontakt</a>
         </nav>
       </header>
 
       <main class="home-layout">
-        <section class="hero panel">
-          <div class="hero-copy">
+        <section class="hero glass-card reveal">
+          <div class="hero-copy reveal" data-reveal-delay="0.05">
             <p class="eyebrow">@<span data-profile-name>CrooLyyCheck</span></p>
-            <h1>Kod na GitHubie. Wideo na YouTube.</h1>
-            <p class="lead">Bez lania wody. Projekty, materialy i szybki kontakt.</p>
+            <h1>GitHub. YouTube. Konkrety.</h1>
+            <p class="lead">Kod, najnowszy material z kanalu i szybki kontakt. Bez AI slopu.</p>
+
             <div class="hero-actions">
               <a class="button button-primary" data-social-link="github" href="#">GitHub</a>
               <a class="button button-secondary" data-social-link="youtube" href="#">YouTube</a>
-              <a class="button button-ghost" href="/kontakt/">Kontakt</a>
+              <a class="button button-ghost" data-email-link href="mailto:kontakt@croolyypage.pl">
+                Mail
+              </a>
             </div>
+
+            <ul class="hero-points" aria-label="Najwazniejsze sekcje">
+              <li>aktualny kod i repozytoria</li>
+              <li>embed z najnowszym uploadem</li>
+              <li>jeden szybki kontakt</li>
+            </ul>
           </div>
 
-          <div class="hero-summary">
-            <p class="summary-title">Na stronie:</p>
-            <ul class="summary-list">
-              <li class="summary-item">GitHub z projektami</li>
-              <li class="summary-item">osadzony material z YouTube</li>
-              <li class="summary-item">przyciski do profili i maila</li>
-            </ul>
+          <div class="hero-side reveal" data-reveal-delay="0.12">
+            <article class="hero-note glass-panel">
+              <span class="hero-note-label">YouTube</span>
+              <strong>Najnowszy material laduje sie automatycznie</strong>
+              <p>Embed korzysta z playlisty uploadow kanalu, tak jak na wivva.pl.</p>
+            </article>
+            <article class="hero-note glass-panel">
+              <span class="hero-note-label">GitHub</span>
+              <strong>@<span data-profile-name>CrooLyyCheck</span></strong>
+              <p>Jedno klikniecie do profilu, jedno spojrzenie na staty i projekty.</p>
+            </article>
           </div>
         </section>
 
-        <section class="embed-grid">
-          <article class="panel embed-card">
-            <div class="embed-header">
+        <section class="bento-grid" aria-label="Profile i materialy">
+          <article class="bento-card glass-card reveal" data-reveal-delay="0.02">
+            <div class="card-header">
               <div>
                 <p class="eyebrow">GitHub</p>
                 <h2>Profil i projekty</h2>
               </div>
-              <div class="button-row">
-                <a class="button button-primary" data-social-link="github" href="#">
-                  Otworz GitHub
-                </a>
-              </div>
+              <a class="button button-primary" data-social-link="github" href="#">
+                Otworz GitHub
+              </a>
             </div>
-            <p class="embed-copy">Repozytoria, eksperymenty i aktualny kod.</p>
-            <a class="embed-frame github-frame" data-social-link="github" href="#">
+            <p class="card-copy">Repozytoria, commity i rzeczy, ktore da sie odpalic od razu.</p>
+            <a class="github-embed glass-panel" data-social-link="github" href="#">
               <img class="github-preview" data-github-preview src="" alt="" loading="lazy" />
             </a>
           </article>
 
-          <article class="panel embed-card">
-            <div class="embed-header">
+          <article class="bento-card glass-card reveal" data-reveal-delay="0.08">
+            <div class="card-header">
               <div>
                 <p class="eyebrow">YouTube</p>
-                <h2>Wideo na stronie</h2>
+                <h2>Najnowszy upload</h2>
               </div>
-              <div class="button-row">
-                <a class="button button-secondary" data-social-link="youtube" href="#">
-                  Otworz kanal
-                </a>
-              </div>
+              <a class="button button-secondary" data-social-link="youtube" href="#">
+                Otworz kanal
+              </a>
             </div>
-            <p class="embed-copy">Osadzony material z kanalu i szybkie przejscie do profilu.</p>
-            <div class="embed-frame youtube-shell">
+            <p class="card-copy">Osadzenie bierze pierwszy material z playlisty uploadow kanalu.</p>
+            <div class="youtube-meta glass-panel">
+              <span class="status-pill">LIVE EMBED</span>
+              <span data-youtube-status>Playlista uploadow kanalu</span>
+            </div>
+            <div class="youtube-shell glass-panel">
               <iframe
                 class="youtube-frame is-hidden"
                 data-youtube-embed
-                title="YouTube video"
+                title="Najnowszy material z YouTube"
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
               <div class="embed-fallback" data-youtube-fallback>
-                <p>Dodaj `youtubeEmbedUrl` w `config.js`, jesli chcesz osadzic konkretny film.</p>
+                <p>Nie mam jeszcze danych kanalu do embeda. Link do kanalu dalej dziala.</p>
                 <a class="button button-secondary" data-social-link="youtube" href="#">
                   Przejdz na YouTube
                 </a>
@@ -103,17 +123,17 @@
           </article>
         </section>
 
-        <section class="panel callout compact-callout">
+        <section class="contact-strip glass-card reveal" data-reveal-delay="0.04">
           <div>
             <p class="eyebrow">Kontakt</p>
             <h2>Mail i profile w jednym miejscu.</h2>
-            <p class="lead callout-lead">GitHub, YouTube i szybki kontakt bez zbednych sekcji.</p>
+            <p class="card-copy">Jesli chcesz pisac, sledzic albo sprawdzic kod, wszystko jest pod reka.</p>
           </div>
-          <div class="callout-actions">
+          <div class="contact-strip-actions">
             <a class="button button-primary" data-email-link href="mailto:kontakt@croolyypage.pl">
               Napisz maila
             </a>
-            <a class="button button-ghost" href="/kontakt/">Kontakt</a>
+            <a class="button button-ghost" href="/kontakt/">Strona kontaktu</a>
           </div>
         </section>
       </main>
@@ -123,6 +143,7 @@
         <div class="footer-links">
           <a data-social-link="github" href="#">GitHub</a>
           <a data-social-link="youtube" href="#">YouTube</a>
+          <a data-email-link href="mailto:kontakt@croolyypage.pl">Mail</a>
         </div>
       </footer>
     </div>
