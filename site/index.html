@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrooLyyPage | Landing Page</title>
+    <meta
+      name="description"
+      content="CrooLyyPage to lekki landing page promujący GitHub, YouTube i projekty open source."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/config.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body data-page="home">
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/">CrooLyyPage</a>
+        <nav class="nav">
+          <a class="nav-link is-active" href="/">Home</a>
+          <a class="nav-link" href="/kontakt/">Kontakt</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero panel">
+          <div class="hero-copy">
+            <p class="eyebrow">GitHub + YouTube + open source</p>
+            <h1>Miejsce, w którym kod, wideo i społeczność grają do jednej bramki.</h1>
+            <p class="lead">
+              Wpadnij po projekty open source, zajrzyj za kulisy mojej pracy i dołącz do
+              społeczności, która lubi tworzyć rzeczy od zera.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" data-social-link="github" href="#">
+                Zobacz GitHub
+              </a>
+              <a class="button button-secondary" data-social-link="youtube" href="#">
+                Subskrybuj YouTube
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <article class="stat-card tilt-card">
+              <span class="stat-label">Profil GitHub</span>
+              <strong>@<span data-profile-name>croolyy</span></strong>
+              <p>Repozytoria, eksperymenty i projekty, które można od razu odpalić.</p>
+            </article>
+            <article class="stat-card accent-card">
+              <span class="stat-label">Profil YouTube</span>
+              <strong>Nowe materiały</strong>
+              <p>Praktyczne video o kodzie, narzędziach i budowaniu czegoś swojego.</p>
+            </article>
+            <article class="floating-note">
+              <span>Kontakt</span>
+              <a data-email-link data-fill-email href="mailto:kontakt@croolyypage.pl">
+                kontakt@croolyypage.pl
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <section class="feature-grid">
+          <article class="panel feature-card">
+            <p class="feature-number">01</p>
+            <h2>Open source bez spiny</h2>
+            <p>
+              Pokazuję projekty, które są czytelne, praktyczne i gotowe do dalszej rozbudowy.
+            </p>
+          </article>
+          <article class="panel feature-card">
+            <p class="feature-number">02</p>
+            <h2>Video dla ludzi, nie dla algorytmu</h2>
+            <p>
+              Krótko, konkretnie i po ludzku: aktualizacje, proces twórczy i przydatne tipy.
+            </p>
+          </article>
+          <article class="panel feature-card">
+            <p class="feature-number">03</p>
+            <h2>Społeczność, do której łatwo wejść</h2>
+            <p>
+              Bez nadętej otoczki. Po prostu miejsce dla osób, które lubią tworzyć i śledzić
+              ciekawe rzeczy.
+            </p>
+          </article>
+        </section>
+
+        <section class="spotlight">
+          <div class="section-heading">
+            <p class="eyebrow">Gdzie kliknąć najpierw?</p>
+            <h2>Dwa główne kierunki</h2>
+          </div>
+          <div class="spotlight-grid">
+            <article class="panel spotlight-card">
+              <span class="spotlight-tag">GitHub</span>
+              <h3>Sprawdź projekty i kod</h3>
+              <p>
+                Najlepszy start, jeśli chcesz zobaczyć repozytoria, roadmapy albo po prostu
+                podgląd tego, co aktualnie powstaje.
+              </p>
+              <a class="text-link" data-social-link="github" href="#">
+                Otwórz profil GitHub
+              </a>
+            </article>
+            <article class="panel spotlight-card">
+              <span class="spotlight-tag">YouTube</span>
+              <h3>Wbij na kanał i zostań na dłużej</h3>
+              <p>
+                Jeśli wolisz oglądać niż czytać, tu znajdziesz materiały, aktualizacje i dawkę
+                motywacji do własnych projektów.
+              </p>
+              <a class="text-link" data-social-link="youtube" href="#">
+                Przejdź na YouTube
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel callout">
+          <div>
+            <p class="eyebrow">Bądźmy w kontakcie</p>
+            <h2>Masz pomysł, pytanie albo chcesz obserwować kolejne projekty?</h2>
+          </div>
+          <div class="callout-actions">
+            <a class="button button-primary" href="/kontakt/">Przejdź do kontaktu</a>
+            <a class="button button-ghost" data-email-link href="mailto:kontakt@croolyypage.pl">
+              Napisz maila
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>&copy; <span data-current-year></span> CrooLyyPage</p>
+        <div class="footer-links">
+          <a data-social-link="github" href="#">GitHub</a>
+          <a data-social-link="youtube" href="#">YouTube</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
