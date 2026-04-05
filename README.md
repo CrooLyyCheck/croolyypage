@@ -1,6 +1,6 @@
-﻿# CrooLyyPage
+# CrooLyyPage
 
-Lekki landing page po polsku dla marki `CrooLyyPage`, przygotowany jako statyczna strona uruchamiana przez `docker compose` bez budowania własnego obrazu.
+Lekki landing page po polsku dla marki `CrooLyyPage`, przygotowany jako statyczna strona uruchamiana przez `docker compose` bez budowania wlasnego obrazu.
 
 ## Wybrana platforma
 
@@ -11,7 +11,7 @@ Dlaczego nie React:
 - strona ma tylko dwie podstrony i bardzo proste interakcje
 - nie trzeba procesu builda
 - wszystko startuje od razu przez `docker compose`
-- łatwiej wdrożyć i utrzymać
+- latwiej wdrozyc i utrzymac
 
 ## Uruchomienie
 
@@ -19,20 +19,22 @@ Dlaczego nie React:
 docker compose up -d
 ```
 
-Po starcie strona będzie dostępna pod adresem:
+Po starcie strona bedzie dostepna pod adresem:
 
 - `http://localhost:8080`
 - `http://localhost:8080/kontakt/`
 
 ## Konfiguracja profili
 
-Wszystkie najważniejsze dane są w pliku:
+Wszystkie najwazniejsze dane sa w pliku:
 
 - `site/config.js`
 
-Możesz tam szybko podmienić:
+Mozesz tam szybko podmienic:
 
-- nazwę profilu
+- nazwe profilu
+- login GitHub do podgladu profilu
 - link do GitHub
 - link do YouTube
+- `youtubeEmbedUrl` do osadzenia konkretnego filmu
 - adres e-mail

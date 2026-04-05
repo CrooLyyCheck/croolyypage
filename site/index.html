@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
     <title>CrooLyyPage | Landing Page</title>
     <meta
       name="description"
-      content="CrooLyyPage to lekki landing page promujący GitHub, YouTube i projekty open source."
+      content="GitHub, YouTube i kontakt do CrooLyyCheck w jednym miejscu."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,111 +28,92 @@
         </nav>
       </header>
 
-      <main>
+      <main class="home-layout">
         <section class="hero panel">
           <div class="hero-copy">
-            <p class="eyebrow">GitHub + YouTube + open source</p>
-            <h1>Miejsce, w którym kod, wideo i społeczność grają do jednej bramki.</h1>
-            <p class="lead">
-              Wpadnij po projekty open source, zajrzyj za kulisy mojej pracy i dołącz do
-              społeczności, która lubi tworzyć rzeczy od zera.
-            </p>
+            <p class="eyebrow">@<span data-profile-name>CrooLyyCheck</span></p>
+            <h1>Kod na GitHubie. Wideo na YouTube.</h1>
+            <p class="lead">Bez lania wody. Projekty, materialy i szybki kontakt.</p>
             <div class="hero-actions">
-              <a class="button button-primary" data-social-link="github" href="#">
-                Zobacz GitHub
-              </a>
-              <a class="button button-secondary" data-social-link="youtube" href="#">
-                Subskrybuj YouTube
-              </a>
+              <a class="button button-primary" data-social-link="github" href="#">GitHub</a>
+              <a class="button button-secondary" data-social-link="youtube" href="#">YouTube</a>
+              <a class="button button-ghost" href="/kontakt/">Kontakt</a>
             </div>
           </div>
 
-          <div class="hero-visual">
-            <article class="stat-card tilt-card">
-              <span class="stat-label">Profil GitHub</span>
-              <strong>@<span data-profile-name>croolyy</span></strong>
-              <p>Repozytoria, eksperymenty i projekty, które można od razu odpalić.</p>
-            </article>
-            <article class="stat-card accent-card">
-              <span class="stat-label">Profil YouTube</span>
-              <strong>Nowe materiały</strong>
-              <p>Praktyczne video o kodzie, narzędziach i budowaniu czegoś swojego.</p>
-            </article>
-            <article class="floating-note">
-              <span>Kontakt</span>
-              <a data-email-link data-fill-email href="mailto:kontakt@croolyypage.pl">
-                kontakt@croolyypage.pl
-              </a>
-            </article>
+          <div class="hero-summary">
+            <p class="summary-title">Na stronie:</p>
+            <ul class="summary-list">
+              <li class="summary-item">GitHub z projektami</li>
+              <li class="summary-item">osadzony material z YouTube</li>
+              <li class="summary-item">przyciski do profili i maila</li>
+            </ul>
           </div>
         </section>
 
-        <section class="feature-grid">
-          <article class="panel feature-card">
-            <p class="feature-number">01</p>
-            <h2>Open source bez spiny</h2>
-            <p>
-              Pokazuję projekty, które są czytelne, praktyczne i gotowe do dalszej rozbudowy.
-            </p>
+        <section class="embed-grid">
+          <article class="panel embed-card">
+            <div class="embed-header">
+              <div>
+                <p class="eyebrow">GitHub</p>
+                <h2>Profil i projekty</h2>
+              </div>
+              <div class="button-row">
+                <a class="button button-primary" data-social-link="github" href="#">
+                  Otworz GitHub
+                </a>
+              </div>
+            </div>
+            <p class="embed-copy">Repozytoria, eksperymenty i aktualny kod.</p>
+            <a class="embed-frame github-frame" data-social-link="github" href="#">
+              <img class="github-preview" data-github-preview src="" alt="" loading="lazy" />
+            </a>
           </article>
-          <article class="panel feature-card">
-            <p class="feature-number">02</p>
-            <h2>Video dla ludzi, nie dla algorytmu</h2>
-            <p>
-              Krótko, konkretnie i po ludzku: aktualizacje, proces twórczy i przydatne tipy.
-            </p>
-          </article>
-          <article class="panel feature-card">
-            <p class="feature-number">03</p>
-            <h2>Społeczność, do której łatwo wejść</h2>
-            <p>
-              Bez nadętej otoczki. Po prostu miejsce dla osób, które lubią tworzyć i śledzić
-              ciekawe rzeczy.
-            </p>
+
+          <article class="panel embed-card">
+            <div class="embed-header">
+              <div>
+                <p class="eyebrow">YouTube</p>
+                <h2>Wideo na stronie</h2>
+              </div>
+              <div class="button-row">
+                <a class="button button-secondary" data-social-link="youtube" href="#">
+                  Otworz kanal
+                </a>
+              </div>
+            </div>
+            <p class="embed-copy">Osadzony material z kanalu i szybkie przejscie do profilu.</p>
+            <div class="embed-frame youtube-shell">
+              <iframe
+                class="youtube-frame is-hidden"
+                data-youtube-embed
+                title="YouTube video"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+              <div class="embed-fallback" data-youtube-fallback>
+                <p>Dodaj `youtubeEmbedUrl` w `config.js`, jesli chcesz osadzic konkretny film.</p>
+                <a class="button button-secondary" data-social-link="youtube" href="#">
+                  Przejdz na YouTube
+                </a>
+              </div>
+            </div>
           </article>
         </section>
 
-        <section class="spotlight">
-          <div class="section-heading">
-            <p class="eyebrow">Gdzie kliknąć najpierw?</p>
-            <h2>Dwa główne kierunki</h2>
-          </div>
-          <div class="spotlight-grid">
-            <article class="panel spotlight-card">
-              <span class="spotlight-tag">GitHub</span>
-              <h3>Sprawdź projekty i kod</h3>
-              <p>
-                Najlepszy start, jeśli chcesz zobaczyć repozytoria, roadmapy albo po prostu
-                podgląd tego, co aktualnie powstaje.
-              </p>
-              <a class="text-link" data-social-link="github" href="#">
-                Otwórz profil GitHub
-              </a>
-            </article>
-            <article class="panel spotlight-card">
-              <span class="spotlight-tag">YouTube</span>
-              <h3>Wbij na kanał i zostań na dłużej</h3>
-              <p>
-                Jeśli wolisz oglądać niż czytać, tu znajdziesz materiały, aktualizacje i dawkę
-                motywacji do własnych projektów.
-              </p>
-              <a class="text-link" data-social-link="youtube" href="#">
-                Przejdź na YouTube
-              </a>
-            </article>
-          </div>
-        </section>
-
-        <section class="panel callout">
+        <section class="panel callout compact-callout">
           <div>
-            <p class="eyebrow">Bądźmy w kontakcie</p>
-            <h2>Masz pomysł, pytanie albo chcesz obserwować kolejne projekty?</h2>
+            <p class="eyebrow">Kontakt</p>
+            <h2>Mail i profile w jednym miejscu.</h2>
+            <p class="lead callout-lead">GitHub, YouTube i szybki kontakt bez zbednych sekcji.</p>
           </div>
           <div class="callout-actions">
-            <a class="button button-primary" href="/kontakt/">Przejdź do kontaktu</a>
-            <a class="button button-ghost" data-email-link href="mailto:kontakt@croolyypage.pl">
+            <a class="button button-primary" data-email-link href="mailto:kontakt@croolyypage.pl">
               Napisz maila
             </a>
+            <a class="button button-ghost" href="/kontakt/">Kontakt</a>
           </div>
         </section>
       </main>
