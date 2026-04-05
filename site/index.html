@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
@@ -61,7 +61,7 @@
             <article class="hero-note glass-panel">
               <span class="hero-note-label">YouTube</span>
               <strong>Najnowszy material laduje sie automatycznie</strong>
-              <p>Embed korzysta z playlisty uploadow kanalu, tak jak na wivva.pl.</p>
+              <p>Embed bierze najnowszy dzialajacy material z kanalu, tak jak na wivva.pl.</p>
             </article>
             <article class="hero-note glass-panel">
               <span class="hero-note-label">GitHub</span>
@@ -83,9 +83,43 @@
               </a>
             </div>
             <p class="card-copy">Repozytoria, commity i rzeczy, ktore da sie odpalic od razu.</p>
-            <a class="github-embed glass-panel" data-social-link="github" href="#">
-              <img class="github-preview" data-github-preview src="" alt="" loading="lazy" />
-            </a>
+            <div class="github-embed glass-panel" data-github-card>
+              <p class="github-loading" data-github-loading>Ladowanie podgladu GitHub...</p>
+
+              <div class="github-card is-hidden" data-github-content>
+                <div class="github-profile">
+                  <img class="github-avatar" data-github-avatar src="" alt="" loading="lazy" />
+                  <div class="github-profile-copy">
+                    <strong class="github-login" data-github-login>CrooLyyCheck</strong>
+                    <p class="github-copy" data-github-bio>Publiczny profil i aktualne repozytoria.</p>
+                  </div>
+                </div>
+
+                <div class="github-stats">
+                  <span class="github-chip" data-github-repos>0 repo</span>
+                  <span class="github-chip" data-github-followers>0 followers</span>
+                </div>
+
+                <div class="github-feature">
+                  <span class="github-feature-label">Wybrane repo</span>
+                  <a class="github-feature-name" data-github-repo-link href="#">
+                    croolyypage
+                  </a>
+                  <p class="github-copy" data-github-repo-description>
+                    Opis repozytorium pojawi sie tutaj.
+                  </p>
+                  <div class="github-feature-meta">
+                    <span data-github-repo-language>CSS</span>
+                    <span data-github-repo-updated>zaktualizowano niedawno</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="github-fallback is-hidden" data-github-fallback>
+                <p class="github-copy">Nie udalo sie pobrac danych z GitHub API.</p>
+                <a class="text-link" data-social-link="github" href="#">Otworz profil GitHub</a>
+              </div>
+            </div>
           </article>
 
           <article class="bento-card glass-card reveal" data-reveal-delay="0.08">
@@ -98,10 +132,15 @@
                 Otworz kanal
               </a>
             </div>
-            <p class="card-copy">Osadzenie bierze pierwszy material z playlisty uploadow kanalu.</p>
+            <p class="card-copy">Osadzenie bierze najnowszy dzialajacy material z kanalu.</p>
             <div class="youtube-meta glass-panel">
-              <span class="status-pill">LIVE EMBED</span>
-              <span data-youtube-status>Playlista uploadow kanalu</span>
+              <span class="status-pill">LATEST</span>
+              <div class="youtube-meta-copy">
+                <strong class="youtube-title" data-youtube-title>Najnowszy material z kanalu</strong>
+                <a class="youtube-meta-link" data-youtube-video-link data-social-link="youtube" href="#">
+                  Otworz material
+                </a>
+              </div>
             </div>
             <div class="youtube-shell glass-panel">
               <iframe
@@ -114,7 +153,7 @@
                 allowfullscreen
               ></iframe>
               <div class="embed-fallback" data-youtube-fallback>
-                <p>Nie mam jeszcze danych kanalu do embeda. Link do kanalu dalej dziala.</p>
+                <p>Nie udalo sie pobrac najnowszego materialu. Link do kanalu dalej dziala.</p>
                 <a class="button button-secondary" data-social-link="youtube" href="#">
                   Przejdz na YouTube
                 </a>
