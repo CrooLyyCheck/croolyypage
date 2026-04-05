@@ -2,6 +2,7 @@ window.CROOLYY_PAGE_CONFIG = {
   brandName: "CrooLyyPage",
   profileName: "CrooLyyCheck",
   githubUsername: "CrooLyyCheck",
+  githubApiBase: "/api/github",
   githubFeaturedRepo: "croolyypage",
   githubUrl: "https://github.com/CrooLyyCheck",
   youtubeUrl: "https://www.youtube.com/@CrooLyyCheck",

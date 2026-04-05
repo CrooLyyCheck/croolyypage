@@ -3,6 +3,7 @@
     brandName: "CrooLyyPage",
     profileName: "CrooLyyCheck",
     githubUsername: "CrooLyyCheck",
+    githubApiBase: "/api/github",
     githubFeaturedRepo: "croolyypage",
     githubUrl: "https://github.com/CrooLyyCheck",
     youtubeUrl: "https://www.youtube.com/@CrooLyyCheck",
@@ -127,19 +128,7 @@
     }
 
     try {
-      const [userResponse, reposResponse] = await Promise.all([
-        fetch(`https://api.github.com/users/${encodeURIComponent(username)}`),
-        fetch(
-          `https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=updated&per_page=12`,
-        ),
-      ]);
-
-      if (!userResponse.ok || !reposResponse.ok) {
-        throw new Error("GitHub API request failed");
-      }
-
-      const user = await userResponse.json();
-      const repos = await reposResponse.json();
+      const { user, repos } = await fetchGitHubProfile(username, siteConfig.githubApiBase);
       const featuredRepo =
         repos.find((repo) => repo.name === siteConfig.githubFeaturedRepo) ||
         repos.find((repo) => !repo.fork) ||
@@ -149,10 +138,10 @@
       fillText(
         card,
         "[data-github-bio]",
-        user.bio || "Publiczny profil, aktualne repozytoria i szybki podglad aktywnych projektow.",
+        user.bio || "Publiczny profil, repozytoria i aktualne projekty.",
       );
       fillText(card, "[data-github-repos]", `${user.public_repos} repo`);
-      fillText(card, "[data-github-followers]", `${user.followers} followers`);
+      fillText(card, "[data-github-followers]", `${user.followers} obserwujacych`);
 
       const avatar = card.querySelector("[data-github-avatar]");
 
@@ -179,7 +168,7 @@
         fillText(
           card,
           "[data-github-repo-language]",
-          featuredRepo.language || "Brak jezyka w API",
+          featuredRepo.language || "bez wskazanego jezyka",
         );
         fillText(
           card,
@@ -204,6 +193,46 @@
         fallback.classList.remove("is-hidden");
       }
     }
+  }
+
+  async function fetchGitHubProfile(username, apiBase) {
+    const bases = Array.from(new Set([apiBase, "https://api.github.com"].filter(Boolean)));
+
+    for (const base of bases) {
+      try {
+        const [userResponse, reposResponse] = await Promise.all([
+          fetch(buildApiUrl(base, `/users/${encodeURIComponent(username)}`), {
+            headers: {
+              Accept: "application/vnd.github+json",
+            },
+          }),
+          fetch(
+            buildApiUrl(
+              base,
+              `/users/${encodeURIComponent(username)}/repos?sort=updated&per_page=12`,
+            ),
+            {
+              headers: {
+                Accept: "application/vnd.github+json",
+              },
+            },
+          ),
+        ]);
+
+        if (!userResponse.ok || !reposResponse.ok) {
+          throw new Error("GitHub API request failed");
+        }
+
+        return {
+          user: await userResponse.json(),
+          repos: await reposResponse.json(),
+        };
+      } catch {
+        continue;
+      }
+    }
+
+    throw new Error("GitHub profile request failed");
   }
 
   async function initYouTubeEmbed(siteConfig) {
@@ -408,6 +437,12 @@
   function extractIframeSrc(html) {
     const match = html ? html.match(/src="([^"]+)"/i) : null;
     return match ? match[1] : "";
+  }
+
+  function buildApiUrl(base, path) {
+    const cleanBase = (base || "").replace(/\/+$/, "");
+    const cleanPath = (path || "").replace(/^\/+/, "");
+    return `${cleanBase}/${cleanPath}`;
   }
 
   function formatRelativeDate(dateString) {

@@ -6,7 +6,7 @@
     <title>CrooLyyPage | Landing Page</title>
     <meta
       name="description"
-      content="GitHub, najnowszy material z YouTube i kontakt do CrooLyyCheck w jednym miejscu."
+      content="GitHub, YouTube i kontakt do CrooLyyCheck w jednym miejscu."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +23,7 @@
       <span class="scene-blob scene-blob-a"></span>
       <span class="scene-blob scene-blob-b"></span>
       <span class="scene-blob scene-blob-c"></span>
+      <span class="scene-blob scene-blob-d"></span>
       <span class="scene-grid"></span>
     </div>
 
@@ -39,34 +40,35 @@
         <section class="hero glass-card reveal">
           <div class="hero-copy reveal" data-reveal-delay="0.05">
             <p class="eyebrow">@<span data-profile-name>CrooLyyCheck</span></p>
-            <h1>GitHub. YouTube. Konkrety.</h1>
-            <p class="lead">Kod, najnowszy material z kanalu i szybki kontakt. Bez AI slopu.</p>
+            <h1>GitHub, YouTube i kontakt.</h1>
+            <p class="lead">
+              Aktualne repozytoria, najnowszy material z kanalu i prosty kontakt w jednym
+              miejscu.
+            </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" data-social-link="github" href="#">GitHub</a>
-              <a class="button button-secondary" data-social-link="youtube" href="#">YouTube</a>
-              <a class="button button-ghost" data-email-link href="mailto:kontakt@croolyypage.pl">
-                Mail
+              <a class="button button-primary" data-email-link href="mailto:kontakt@croolyypage.pl">
+                Napisz maila
               </a>
             </div>
 
             <ul class="hero-points" aria-label="Najwazniejsze sekcje">
-              <li>aktualny kod i repozytoria</li>
-              <li>embed z najnowszym uploadem</li>
-              <li>jeden szybki kontakt</li>
+              <li>aktualne repozytoria</li>
+              <li>najnowszy material z kanalu</li>
+              <li>szybki kontakt</li>
             </ul>
           </div>
 
           <div class="hero-side reveal" data-reveal-delay="0.12">
             <article class="hero-note glass-panel">
-              <span class="hero-note-label">YouTube</span>
-              <strong>Najnowszy material laduje sie automatycznie</strong>
-              <p>Embed bierze najnowszy dzialajacy material z kanalu, tak jak na wivva.pl.</p>
+              <span class="hero-note-label">GitHub</span>
+              <strong>Kod i projekty</strong>
+              <p>Podglad profilu, wybrane repozytorium i ostatnie aktualizacje.</p>
             </article>
             <article class="hero-note glass-panel">
-              <span class="hero-note-label">GitHub</span>
-              <strong>@<span data-profile-name>CrooLyyCheck</span></strong>
-              <p>Jedno klikniecie do profilu, jedno spojrzenie na staty i projekty.</p>
+              <span class="hero-note-label">YouTube</span>
+              <strong>Najnowszy material</strong>
+              <p>Strona sama pobiera aktualny material z kanalu.</p>
             </article>
           </div>
         </section>
@@ -78,11 +80,9 @@
                 <p class="eyebrow">GitHub</p>
                 <h2>Profil i projekty</h2>
               </div>
-              <a class="button button-primary" data-social-link="github" href="#">
-                Otworz GitHub
-              </a>
             </div>
-            <p class="card-copy">Repozytoria, commity i rzeczy, ktore da sie odpalic od razu.</p>
+            <p class="card-copy">Profil, repozytoria i ostatnio aktualizowany projekt.</p>
+
             <div class="github-embed glass-panel" data-github-card>
               <p class="github-loading" data-github-loading>Ladowanie podgladu GitHub...</p>
 
@@ -97,7 +97,7 @@
 
                 <div class="github-stats">
                   <span class="github-chip" data-github-repos>0 repo</span>
-                  <span class="github-chip" data-github-followers>0 followers</span>
+                  <span class="github-chip" data-github-followers>0 obserwujacych</span>
                 </div>
 
                 <div class="github-feature">
@@ -116,9 +116,14 @@
               </div>
 
               <div class="github-fallback is-hidden" data-github-fallback>
-                <p class="github-copy">Nie udalo sie pobrac danych z GitHub API.</p>
-                <a class="text-link" data-social-link="github" href="#">Otworz profil GitHub</a>
+                <p class="github-copy">Nie udalo sie pobrac danych GitHub.</p>
               </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="button button-primary" data-social-link="github" href="#">
+                Otworz GitHub
+              </a>
             </div>
           </article>
 
@@ -126,15 +131,13 @@
             <div class="card-header">
               <div>
                 <p class="eyebrow">YouTube</p>
-                <h2>Najnowszy upload</h2>
+                <h2>Najnowszy material</h2>
               </div>
-              <a class="button button-secondary" data-social-link="youtube" href="#">
-                Otworz kanal
-              </a>
             </div>
-            <p class="card-copy">Osadzenie bierze najnowszy dzialajacy material z kanalu.</p>
+            <p class="card-copy">Najnowszy material z kanalu osadzony bezposrednio na stronie.</p>
+
             <div class="youtube-meta glass-panel">
-              <span class="status-pill">LATEST</span>
+              <span class="status-pill">AKTUALNE</span>
               <div class="youtube-meta-copy">
                 <strong class="youtube-title" data-youtube-title>Najnowszy material z kanalu</strong>
                 <a class="youtube-meta-link" data-youtube-video-link data-social-link="youtube" href="#">
@@ -142,6 +145,7 @@
                 </a>
               </div>
             </div>
+
             <div class="youtube-shell glass-panel">
               <iframe
                 class="youtube-frame is-hidden"
@@ -153,11 +157,17 @@
                 allowfullscreen
               ></iframe>
               <div class="embed-fallback" data-youtube-fallback>
-                <p>Nie udalo sie pobrac najnowszego materialu. Link do kanalu dalej dziala.</p>
+                <p>Nie udalo sie pobrac najnowszego materialu. Kanal dalej jest dostepny.</p>
                 <a class="button button-secondary" data-social-link="youtube" href="#">
-                  Przejdz na YouTube
+                  Otworz kanal
                 </a>
               </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="button button-secondary" data-social-link="youtube" href="#">
+                Otworz YouTube
+              </a>
             </div>
           </article>
         </section>
@@ -165,25 +175,19 @@
         <section class="contact-strip glass-card reveal" data-reveal-delay="0.04">
           <div>
             <p class="eyebrow">Kontakt</p>
-            <h2>Mail i profile w jednym miejscu.</h2>
-            <p class="card-copy">Jesli chcesz pisac, sledzic albo sprawdzic kod, wszystko jest pod reka.</p>
+            <h2>Najprostsza droga: mail.</h2>
+            <p class="card-copy">Jesli chcesz napisac, wszystko jest pod reka.</p>
           </div>
           <div class="contact-strip-actions">
             <a class="button button-primary" data-email-link href="mailto:kontakt@croolyypage.pl">
               Napisz maila
             </a>
-            <a class="button button-ghost" href="/kontakt/">Strona kontaktu</a>
           </div>
         </section>
       </main>
 
-      <footer class="footer">
+      <footer class="footer footer-simple">
         <p>&copy; <span data-current-year></span> CrooLyyPage</p>
-        <div class="footer-links">
-          <a data-social-link="github" href="#">GitHub</a>
-          <a data-social-link="youtube" href="#">YouTube</a>
-          <a data-email-link href="mailto:kontakt@croolyypage.pl">Mail</a>
-        </div>
       </footer>
     </div>
   </body>
