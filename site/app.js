@@ -274,7 +274,7 @@
         fallback.classList.remove("is-hidden");
       }
 
-      fillText(document, "[data-youtube-title]", "Nie udalo sie pobrac latest uploadu");
+      fillText(document, "[data-youtube-title]", "Nie udalo sie pobrac materialu z kanalu");
 
       document.querySelectorAll("[data-youtube-video-link]").forEach((link) => {
         link.setAttribute("href", siteConfig.youtubeUrl);
@@ -354,7 +354,7 @@
     }
 
     return {
-      title: "Material ustawiony recznie w config.js",
+      title: "Wybrany material z kanalu",
       watchUrl: embedUrl,
       embedUrl: normalized,
     };
