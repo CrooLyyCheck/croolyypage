@@ -46,10 +46,41 @@
     node.textContent = new Date().getFullYear();
   });
 
+  setupPageTransitions();
   setupRevealAnimations();
   setupTopbarState();
   initGitHubCard(config);
   initYouTubeEmbed(config);
+
+  function setupPageTransitions() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    let isNavigating = false;
+
+    window.addEventListener("pageshow", () => {
+      document.body.classList.remove("is-page-leaving");
+      isNavigating = false;
+    });
+
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href]");
+
+      if (!shouldAnimateNavigation(event, link, isNavigating)) {
+        return;
+      }
+
+      const nextUrl = new URL(link.href, window.location.href);
+      isNavigating = true;
+      event.preventDefault();
+      document.body.classList.add("is-page-leaving");
+
+      window.setTimeout(() => {
+        window.location.assign(nextUrl.toString());
+      }, 380);
+    });
+  }
 
   function setupRevealAnimations() {
     const items = Array.from(document.querySelectorAll(".reveal"));
@@ -443,6 +474,46 @@
     const cleanBase = (base || "").replace(/\/+$/, "");
     const cleanPath = (path || "").replace(/^\/+/, "");
     return `${cleanBase}/${cleanPath}`;
+  }
+
+  function shouldAnimateNavigation(event, link, isNavigating) {
+    if (!link || isNavigating || event.defaultPrevented) {
+      return false;
+    }
+
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return false;
+    }
+
+    if (link.target && link.target !== "_self") {
+      return false;
+    }
+
+    if (link.hasAttribute("download")) {
+      return false;
+    }
+
+    const href = link.getAttribute("href") || "";
+
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) {
+      return false;
+    }
+
+    const currentUrl = new URL(window.location.href);
+    const nextUrl = new URL(link.href, currentUrl);
+
+    if (nextUrl.origin !== currentUrl.origin) {
+      return false;
+    }
+
+    const isSameDocument =
+      nextUrl.pathname === currentUrl.pathname && nextUrl.search === currentUrl.search;
+
+    if (isSameDocument) {
+      return false;
+    }
+
+    return true;
   }
 
   function formatRelativeDate(dateString) {

@@ -29,6 +29,8 @@
   --transition-fast: 160ms ease;
   --transition-normal: 260ms ease;
   --transition-slow: 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-page-enter: 680ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --transition-page-exit: 420ms cubic-bezier(0.4, 0, 0.2, 1);
   --page-background:
     radial-gradient(circle at 12% 16%, rgba(255, 145, 189, 0.52), transparent 26%),
     radial-gradient(circle at 82% 14%, rgba(143, 231, 255, 0.5), transparent 22%),
@@ -76,6 +78,14 @@
   --youtube-shell-background: linear-gradient(180deg, #1f2437 0%, #121524 100%);
   --embed-fallback-text: rgba(255, 255, 255, 0.82);
   --avatar-shadow: 0 14px 24px rgba(130, 137, 176, 0.18);
+  --topbar-glow-a: radial-gradient(circle, rgba(255, 145, 189, 0.3) 0%, transparent 70%);
+  --topbar-glow-b: radial-gradient(circle, rgba(143, 231, 255, 0.26) 0%, transparent 72%);
+  --hero-glow-a: radial-gradient(circle, rgba(255, 145, 189, 0.36) 0%, transparent 70%);
+  --hero-glow-b: radial-gradient(circle, rgba(143, 231, 255, 0.28) 0%, transparent 72%);
+  --topbar-shadow-resting: 0 16px 34px rgba(166, 173, 204, 0.12);
+  --page-leaving-opacity: 0;
+  --page-leaving-transform: translate3d(0, 24px, 0) scale(0.985);
+  --page-leaving-filter: blur(12px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -143,6 +153,11 @@
     --youtube-shell-background: linear-gradient(180deg, #101625 0%, #06080f 100%);
     --embed-fallback-text: rgba(255, 255, 255, 0.86);
     --avatar-shadow: 0 16px 28px rgba(0, 0, 0, 0.34);
+    --topbar-glow-a: radial-gradient(circle, rgba(255, 125, 176, 0.28) 0%, transparent 72%);
+    --topbar-glow-b: radial-gradient(circle, rgba(110, 223, 255, 0.24) 0%, transparent 72%);
+    --hero-glow-a: radial-gradient(circle, rgba(255, 125, 176, 0.34) 0%, transparent 68%);
+    --hero-glow-b: radial-gradient(circle, rgba(110, 223, 255, 0.24) 0%, transparent 72%);
+    --topbar-shadow-resting: 0 18px 38px rgba(2, 6, 18, 0.24);
   }
 }
 
@@ -161,6 +176,10 @@ body {
   color: var(--text);
   background: var(--page-background);
   overflow-x: hidden;
+}
+
+body.is-page-leaving {
+  overflow: hidden;
 }
 
 a {
@@ -185,6 +204,10 @@ textarea {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  transition:
+    opacity var(--transition-page-exit),
+    transform var(--transition-page-exit),
+    filter var(--transition-page-exit);
 }
 
 .scene-blob {
@@ -289,6 +312,11 @@ textarea {
   width: min(calc(100% - 32px), var(--container));
   margin: 0 auto;
   padding: 22px 0 40px;
+  animation: page-enter var(--transition-page-enter) both;
+  transition:
+    opacity var(--transition-page-exit),
+    transform var(--transition-page-exit),
+    filter var(--transition-page-exit);
 }
 
 .glass-surface,
@@ -324,10 +352,52 @@ textarea {
   margin-bottom: 24px;
   padding: 12px 16px;
   border-radius: 20px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: var(--topbar-shadow-resting);
   transition:
     box-shadow var(--transition-normal),
     border-color var(--transition-normal),
     transform var(--transition-normal);
+}
+
+.topbar > * {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar::before,
+.topbar::after,
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity;
+}
+
+.topbar::before {
+  width: 17rem;
+  height: 17rem;
+  top: -11rem;
+  left: -2rem;
+  background: var(--topbar-glow-a);
+  opacity: 0.85;
+  filter: blur(20px);
+  animation: ambient-glow-a 14s ease-in-out infinite alternate;
+}
+
+.topbar::after {
+  width: 16rem;
+  height: 16rem;
+  right: -4rem;
+  bottom: -11rem;
+  background: var(--topbar-glow-b);
+  opacity: 0.78;
+  filter: blur(24px);
+  animation: ambient-glow-b 18s ease-in-out infinite alternate;
 }
 
 .topbar.is-scrolled {
@@ -392,6 +462,30 @@ textarea {
   gap: 24px;
   padding: 34px;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.hero::before {
+  width: 28rem;
+  height: 28rem;
+  top: -15rem;
+  left: -7rem;
+  background: var(--hero-glow-a);
+  opacity: 0.88;
+  filter: blur(24px);
+  animation: ambient-glow-c 16s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  width: 24rem;
+  height: 24rem;
+  right: -6rem;
+  bottom: -12rem;
+  background: var(--hero-glow-b);
+  opacity: 0.74;
+  filter: blur(28px);
+  animation: ambient-glow-d 20s ease-in-out infinite alternate;
 }
 
 .contact-hero {
@@ -841,6 +935,18 @@ h3 {
   text-align: center;
 }
 
+body.is-page-leaving .page-shell {
+  opacity: var(--page-leaving-opacity);
+  transform: var(--page-leaving-transform);
+  filter: var(--page-leaving-filter);
+}
+
+body.is-page-leaving .scene-bg {
+  opacity: 0.32;
+  transform: scale(1.04);
+  filter: blur(8px);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -859,6 +965,68 @@ h3 {
   display: none !important;
 }
 
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(0.986);
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes ambient-glow-a {
+  from {
+    transform: translate3d(-1rem, 0, 0) scale(0.96);
+    opacity: 0.56;
+  }
+
+  to {
+    transform: translate3d(2rem, 1.25rem, 0) scale(1.12);
+    opacity: 0.9;
+  }
+}
+
+@keyframes ambient-glow-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(0.94);
+    opacity: 0.46;
+  }
+
+  to {
+    transform: translate3d(-1.8rem, -1.1rem, 0) scale(1.14);
+    opacity: 0.82;
+  }
+}
+
+@keyframes ambient-glow-c {
+  from {
+    transform: translate3d(-1.5rem, -0.8rem, 0) scale(0.94);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translate3d(2rem, 1.5rem, 0) scale(1.16);
+    opacity: 0.9;
+  }
+}
+
+@keyframes ambient-glow-d {
+  from {
+    transform: translate3d(0, 0, 0) scale(0.92);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: translate3d(-2rem, -1.2rem, 0) scale(1.18);
+    opacity: 0.78;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -875,6 +1043,12 @@ h3 {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .page-shell,
+  .scene-bg {
+    animation: none;
+    transition: none;
   }
 }
 
