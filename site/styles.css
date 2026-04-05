@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --bg: #fffdfd;
   --panel: rgba(255, 255, 255, 0.58);
   --panel-strong: rgba(255, 255, 255, 0.8);
@@ -28,6 +29,121 @@
   --transition-fast: 160ms ease;
   --transition-normal: 260ms ease;
   --transition-slow: 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  --page-background:
+    radial-gradient(circle at 12% 16%, rgba(255, 145, 189, 0.52), transparent 26%),
+    radial-gradient(circle at 82% 14%, rgba(143, 231, 255, 0.5), transparent 22%),
+    radial-gradient(circle at 64% 78%, rgba(255, 241, 174, 0.44), transparent 28%),
+    radial-gradient(circle at 32% 58%, rgba(255, 255, 255, 0.95), transparent 26%),
+    linear-gradient(135deg, #fffdfd 0%, #fff8fb 36%, #f6fbff 68%, #ffffff 100%);
+  --scene-blob-blend: multiply;
+  --scene-blob-d: rgba(255, 255, 255, 0.86);
+  --scene-blob-d-opacity: 0.72;
+  --scene-blob-d-blend: screen;
+  --scene-grid-line: rgba(126, 139, 179, 0.045);
+  --scene-grid-mask: linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent 92%);
+  --glass-surface-top: rgba(255, 255, 255, 0.72);
+  --glass-surface-bottom: rgba(255, 255, 255, 0.5);
+  --glass-panel-top: rgba(255, 255, 255, 0.76);
+  --glass-panel-bottom: rgba(255, 255, 255, 0.52);
+  --nav-hover-bg: rgba(255, 255, 255, 0.42);
+  --nav-active-bg: rgba(255, 255, 255, 0.86);
+  --nav-active-ring: rgba(255, 145, 189, 0.14);
+  --pill-bg: rgba(255, 255, 255, 0.64);
+  --pill-border: rgba(255, 145, 189, 0.14);
+  --hero-point-bg: rgba(255, 255, 255, 0.48);
+  --hero-point-border: rgba(143, 154, 191, 0.12);
+  --button-secondary-bg: linear-gradient(
+    135deg,
+    rgba(143, 231, 255, 0.88),
+    rgba(100, 217, 255, 0.9)
+  );
+  --button-secondary-border: rgba(100, 217, 255, 0.16);
+  --button-secondary-text: #1f2944;
+  --button-ghost-bg: rgba(255, 255, 255, 0.62);
+  --button-ghost-hover-bg: rgba(255, 255, 255, 0.78);
+  --card-border-soft: rgba(143, 154, 191, 0.16);
+  --chip-border: rgba(143, 154, 191, 0.12);
+  --chip-bg: rgba(255, 255, 255, 0.56);
+  --feature-background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.56)),
+    radial-gradient(circle at top left, rgba(255, 145, 189, 0.12), transparent 46%),
+    radial-gradient(circle at 85% 15%, rgba(143, 231, 255, 0.14), transparent 42%);
+  --contact-strip-background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.58)),
+    radial-gradient(circle at 12% 12%, rgba(255, 145, 189, 0.18), transparent 46%),
+    radial-gradient(circle at 86% 18%, rgba(143, 231, 255, 0.18), transparent 42%),
+    radial-gradient(circle at 54% 110%, rgba(255, 241, 174, 0.16), transparent 44%);
+  --youtube-shell-background: linear-gradient(180deg, #1f2437 0%, #121524 100%);
+  --embed-fallback-text: rgba(255, 255, 255, 0.82);
+  --avatar-shadow: 0 14px 24px rgba(130, 137, 176, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0e1321;
+    --panel: rgba(14, 20, 35, 0.68);
+    --panel-strong: rgba(20, 28, 49, 0.82);
+    --text: #edf2ff;
+    --muted: #a8b4d3;
+    --line: rgba(130, 148, 203, 0.22);
+    --line-strong: rgba(255, 143, 196, 0.36);
+    --pink: #ff7db0;
+    --pink-strong: #ff9dca;
+    --cyan: #6edfff;
+    --cyan-strong: #98ebff;
+    --yellow: #ffd879;
+    --white-glow: rgba(240, 244, 255, 0.12);
+    --pink-glow: rgba(255, 85, 163, 0.28);
+    --cyan-glow: rgba(74, 211, 255, 0.24);
+    --yellow-glow: rgba(255, 211, 111, 0.18);
+    --shadow: 0 24px 60px rgba(3, 7, 18, 0.5);
+    --shadow-soft: 0 18px 42px rgba(3, 7, 18, 0.34);
+    --shadow-glow: 0 0 34px rgba(255, 109, 174, 0.22);
+    --page-background:
+      radial-gradient(circle at 14% 18%, rgba(255, 100, 171, 0.18), transparent 25%),
+      radial-gradient(circle at 84% 16%, rgba(89, 222, 255, 0.17), transparent 24%),
+      radial-gradient(circle at 68% 78%, rgba(255, 219, 119, 0.14), transparent 24%),
+      radial-gradient(circle at 38% 54%, rgba(91, 113, 196, 0.16), transparent 28%),
+      linear-gradient(135deg, #090d18 0%, #0d1321 40%, #12192b 72%, #0b1220 100%);
+    --scene-blob-blend: screen;
+    --scene-blob-d: rgba(112, 144, 232, 0.28);
+    --scene-blob-d-opacity: 0.88;
+    --scene-blob-d-blend: screen;
+    --scene-grid-line: rgba(164, 181, 231, 0.08);
+    --scene-grid-mask: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 92%);
+    --glass-surface-top: rgba(30, 40, 66, 0.82);
+    --glass-surface-bottom: rgba(14, 20, 35, 0.62);
+    --glass-panel-top: rgba(38, 49, 79, 0.86);
+    --glass-panel-bottom: rgba(17, 24, 43, 0.74);
+    --nav-hover-bg: rgba(255, 255, 255, 0.06);
+    --nav-active-bg: rgba(255, 255, 255, 0.1);
+    --nav-active-ring: rgba(152, 235, 255, 0.2);
+    --pill-bg: rgba(255, 255, 255, 0.06);
+    --pill-border: rgba(152, 235, 255, 0.16);
+    --hero-point-bg: rgba(255, 255, 255, 0.04);
+    --hero-point-border: rgba(130, 148, 203, 0.22);
+    --button-secondary-bg: linear-gradient(135deg, #6be2ff 0%, #39c8ff 100%);
+    --button-secondary-border: rgba(107, 226, 255, 0.2);
+    --button-secondary-text: #05121c;
+    --button-ghost-bg: rgba(255, 255, 255, 0.04);
+    --button-ghost-hover-bg: rgba(255, 255, 255, 0.1);
+    --card-border-soft: rgba(130, 148, 203, 0.22);
+    --chip-border: rgba(130, 148, 203, 0.2);
+    --chip-bg: rgba(255, 255, 255, 0.05);
+    --feature-background:
+      linear-gradient(135deg, rgba(34, 45, 73, 0.92), rgba(17, 24, 43, 0.82)),
+      radial-gradient(circle at top left, rgba(255, 125, 176, 0.18), transparent 46%),
+      radial-gradient(circle at 85% 15%, rgba(110, 223, 255, 0.18), transparent 42%);
+    --contact-strip-background:
+      linear-gradient(135deg, rgba(31, 40, 66, 0.88), rgba(16, 22, 39, 0.76)),
+      radial-gradient(circle at 12% 12%, rgba(255, 125, 176, 0.16), transparent 46%),
+      radial-gradient(circle at 86% 18%, rgba(110, 223, 255, 0.15), transparent 42%),
+      radial-gradient(circle at 54% 110%, rgba(255, 216, 121, 0.13), transparent 44%);
+    --youtube-shell-background: linear-gradient(180deg, #101625 0%, #06080f 100%);
+    --embed-fallback-text: rgba(255, 255, 255, 0.86);
+    --avatar-shadow: 0 16px 28px rgba(0, 0, 0, 0.34);
+  }
 }
 
 * {
@@ -43,12 +159,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-body);
   color: var(--text);
-  background:
-    radial-gradient(circle at 12% 16%, rgba(255, 145, 189, 0.52), transparent 26%),
-    radial-gradient(circle at 82% 14%, rgba(143, 231, 255, 0.5), transparent 22%),
-    radial-gradient(circle at 64% 78%, rgba(255, 241, 174, 0.44), transparent 28%),
-    radial-gradient(circle at 32% 58%, rgba(255, 255, 255, 0.95), transparent 26%),
-    linear-gradient(135deg, #fffdfd 0%, #fff8fb 36%, #f6fbff 68%, #ffffff 100%);
+  background: var(--page-background);
   overflow-x: hidden;
 }
 
@@ -81,7 +192,7 @@ textarea {
   border-radius: 999px;
   filter: blur(94px);
   opacity: 0.58;
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--scene-blob-blend);
 }
 
 .scene-blob-a {
@@ -116,9 +227,9 @@ textarea {
   height: 24rem;
   top: 36%;
   right: 18%;
-  background: rgba(255, 255, 255, 0.86);
-  opacity: 0.72;
-  mix-blend-mode: screen;
+  background: var(--scene-blob-d);
+  opacity: var(--scene-blob-d-opacity);
+  mix-blend-mode: var(--scene-blob-d-blend);
   animation: float-d 22s ease-in-out infinite alternate;
 }
 
@@ -126,10 +237,10 @@ textarea {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(126, 139, 179, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(126, 139, 179, 0.045) 1px, transparent 1px);
+    linear-gradient(var(--scene-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--scene-grid-line) 1px, transparent 1px);
   background-size: 44px 44px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent 92%);
+  mask-image: var(--scene-grid-mask);
 }
 
 @keyframes float-a {
@@ -185,7 +296,7 @@ textarea {
 .glass-panel {
   border: 1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.5)),
+    linear-gradient(180deg, var(--glass-surface-top), var(--glass-surface-bottom)),
     var(--panel);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -198,7 +309,7 @@ textarea {
 
 .glass-panel {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.52)),
+    linear-gradient(180deg, var(--glass-panel-top), var(--glass-panel-bottom)),
     var(--panel-strong);
 }
 
@@ -250,15 +361,15 @@ textarea {
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  background: rgba(255, 255, 255, 0.42);
+  background: var(--nav-hover-bg);
   color: var(--text);
   transform: translateY(-1px);
 }
 
 .nav-link.is-active {
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--nav-active-bg);
   color: var(--text);
-  box-shadow: inset 0 0 0 1px rgba(255, 145, 189, 0.14);
+  box-shadow: inset 0 0 0 1px var(--nav-active-ring);
 }
 
 .home-layout,
@@ -313,8 +424,8 @@ textarea {
   gap: 8px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.64);
-  border: 1px solid rgba(255, 145, 189, 0.14);
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
   color: var(--text);
   font-size: 0.78rem;
   font-weight: 800;
@@ -422,8 +533,8 @@ h3 {
 .hero-points li {
   padding: 12px 14px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.48);
-  border: 1px solid rgba(143, 154, 191, 0.12);
+  background: var(--hero-point-bg);
+  border: 1px solid var(--hero-point-border);
   font-weight: 700;
 }
 
@@ -468,9 +579,9 @@ h3 {
 }
 
 .button-secondary {
-  background: linear-gradient(135deg, rgba(143, 231, 255, 0.88), rgba(100, 217, 255, 0.9));
-  color: var(--text);
-  border-color: rgba(100, 217, 255, 0.16);
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border-color: var(--button-secondary-border);
 }
 
 .button-secondary:hover,
@@ -479,7 +590,7 @@ h3 {
 }
 
 .button-ghost {
-  background: rgba(255, 255, 255, 0.62);
+  background: var(--button-ghost-bg);
   color: var(--text);
   border-color: var(--line);
 }
@@ -487,7 +598,7 @@ h3 {
 .button-ghost:hover,
 .button-ghost:focus-visible {
   border-color: var(--line-strong);
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--button-ghost-hover-bg);
 }
 
 .bento-grid,
@@ -546,7 +657,7 @@ h3 {
 
 .github-embed,
 .youtube-shell {
-  border: 1px solid rgba(143, 154, 191, 0.16);
+  border: 1px solid var(--card-border-soft);
 }
 
 .github-embed {
@@ -582,7 +693,7 @@ h3 {
   height: 72px;
   border-radius: 22px;
   object-fit: cover;
-  box-shadow: 0 14px 24px rgba(130, 137, 176, 0.18);
+  box-shadow: var(--avatar-shadow);
 }
 
 .github-login,
@@ -621,8 +732,8 @@ h3 {
   align-items: center;
   padding: 10px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(143, 154, 191, 0.12);
-  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid var(--chip-border);
+  background: var(--chip-bg);
   color: var(--text);
   font-weight: 700;
 }
@@ -632,10 +743,7 @@ h3 {
   gap: 10px;
   padding: 18px;
   border-radius: 22px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.56)),
-    radial-gradient(circle at top left, rgba(255, 145, 189, 0.12), transparent 46%),
-    radial-gradient(circle at 85% 15%, rgba(143, 231, 255, 0.14), transparent 42%);
+  background: var(--feature-background);
 }
 
 .github-feature-meta {
@@ -670,7 +778,7 @@ h3 {
 .youtube-shell {
   min-height: 368px;
   overflow: hidden;
-  background: linear-gradient(180deg, #1f2437 0%, #121524 100%);
+  background: var(--youtube-shell-background);
 }
 
 .youtube-frame {
@@ -690,18 +798,14 @@ h3 {
 }
 
 .embed-fallback p {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--embed-fallback-text);
 }
 
 .contact-strip {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.58)),
-    radial-gradient(circle at 12% 12%, rgba(255, 145, 189, 0.18), transparent 46%),
-    radial-gradient(circle at 86% 18%, rgba(143, 231, 255, 0.18), transparent 42%),
-    radial-gradient(circle at 54% 110%, rgba(255, 241, 174, 0.16), transparent 44%);
+  background: var(--contact-strip-background);
 }
 
 .contact-strip h2 {
